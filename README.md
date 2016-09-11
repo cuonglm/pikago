@@ -9,6 +9,11 @@
 go get -u github.com/Gnouc/pikago
 ```
 
+##Binary
+```sh
+go get github.com/Gnouc/pikago/cmd/pikago
+```
+
 #Author
 
 Cuong Manh Le <cuong.manhle.vn@gmail.com>
