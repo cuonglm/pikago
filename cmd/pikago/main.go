@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/Gnouc/pikago"
 )
@@ -79,12 +80,19 @@ func extractResponse(resp *http.Response) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	var i interface{}
-	_ = json.Unmarshal(body, &i)
-
-	iFieldMap := i.(map[string]interface{})
-	if url, ok := iFieldMap["uri"]; ok {
-		fmt.Println(url)
+	type response struct {
+		Message []string
+		URI     string
 	}
+	r := &response{}
+	err = json.Unmarshal(body, &r)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if len(r.Message) > 0 {
+		log.Fatal(strings.Join(r.Message, "\n"))
+	}
+
+	fmt.Println(r.URI)
 }
