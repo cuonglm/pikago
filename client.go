@@ -32,7 +32,7 @@ type Document struct {
 }
 
 type payload struct {
-	Payload Document `json:"document"`
+	Document `json:"document"`
 }
 
 // NewClient creates new PikabinClient
@@ -69,7 +69,7 @@ func APIUrl(url string) Option {
 
 // Paste pastes a document to pikabin server
 func (c *PikabinClient) Paste(d Document) (*http.Response, error) {
-	payload := payload{Payload: d}
+	payload := payload{d}
 	data, err := json.Marshal(payload)
 	if err != nil {
 		return nil, err

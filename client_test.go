@@ -64,10 +64,10 @@ func TestPaste(t *testing.T) {
 			return
 		}
 
-		assertEqual(t, payload.Payload.Content, content)
-		assertEqual(t, payload.Payload.Title, title)
-		assertEqual(t, payload.Payload.Syntax, syntax)
-		assertEqual(t, payload.Payload.ExpiredAt, expiredAt)
+		assertEqual(t, payload.Content, content)
+		assertEqual(t, payload.Title, title)
+		assertEqual(t, payload.Syntax, syntax)
+		assertEqual(t, payload.ExpiredAt, expiredAt)
 
 		w.WriteHeader(http.StatusCreated)
 	})
