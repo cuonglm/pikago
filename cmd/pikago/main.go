@@ -10,7 +10,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Gnouc/pikago"
+	"github.com/cuonglm/pikago"
 )
 
 var (
